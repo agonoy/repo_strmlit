@@ -8,7 +8,7 @@ import os
 #load_dotenv()
 #openai_api_key = os.getenv('OPENAI_API_KEY')
 
-
+openai_api_key = os.getenv('NAME_KEY')
 
 st.write("Hello, world!")
 #st.write(openai_api_key)
@@ -22,5 +22,5 @@ else:
     secrets = st.secrets['env']
     api_key = secrets['API_KEY']
 
-
+st.write(openai_api_key)
 st.write(api_key)
