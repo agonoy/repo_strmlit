@@ -23,4 +23,3 @@ else:
     api_key = secrets['NAME_API']
 
 st.write(openai_api_key)
-st.write(api_key)
