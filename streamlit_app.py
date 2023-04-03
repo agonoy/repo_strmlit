@@ -3,7 +3,7 @@ import streamlit as st
 
 import os
 from dotenv import load_dotenv
-
+from llama_index import SimpleDirectoryReader
 
 #load_dotenv()
 #openai_api_key = os.getenv('OPENAI_API_KEY')
