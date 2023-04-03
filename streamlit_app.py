@@ -7,8 +7,8 @@ from llama_index import SimpleDirectoryReader
 
 
 
-api_key = os.environ["NAME_API"]
-api_key2 = os.environ["MY_API_KEY"]
+api_key = os.environ["API_MY"]
+#api_key2 = os.environ["MY_API_KEY"]
 
 #load_dotenv()
 #openai_api_key = os.getenv('OPENAI_API_KEY')
