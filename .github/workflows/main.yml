@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      MY_SECRET: ${{ secrets.MY_API2 }}
+      MY_SECRET: ${{ secrets.NAME_API}}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
