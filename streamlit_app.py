@@ -7,7 +7,7 @@ from llama_index import SimpleDirectoryReader
 
 
 # Read the value of the environment variable
-api_key = os.environ['NAME_API']
+api_key = os.environ['MY_API2']
 
 
 
