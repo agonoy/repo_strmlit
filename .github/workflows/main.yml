@@ -1,0 +1,14 @@
+name: My workflow
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Python script
+        run: python streamlit_app.py
