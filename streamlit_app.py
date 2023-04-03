@@ -7,7 +7,7 @@ from llama_index import SimpleDirectoryReader
 
 
 # Read the value of the environment variable
-api_key = os.getenv["MY_API2"]
+api_key = os.getenv['MY_API2']
 
 
 
@@ -28,8 +28,8 @@ import os
 if 'env' not in st.secrets:
     st.error('No secrets were found.')
 else:
-    secrets = st.secrets['env']
-    api_key = secrets['NAME_API']
+    #secrets = st.secrets['env']
+    api_key = st.secrets['NAME_API']
 
 #st.write(openai_api_key)
 st.write(api_key)
