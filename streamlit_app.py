@@ -6,13 +6,15 @@ from dotenv import load_dotenv
 from llama_index import SimpleDirectoryReader
 
 
+import pandas as pd
+import numpy as np
+
 # Read the value of the environment variable
 api_key = os.environ["MY_API2"]
 
 
 
 #api_key2 = os.environ["MY_API_KEY"]
-
 
 #load_dotenv()
 #openai_api_key = os.getenv('OPENAI_API_KEY')
