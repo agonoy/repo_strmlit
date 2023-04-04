@@ -13,6 +13,12 @@ import numpy as np
 a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
 
+#============== input API ===== side bar
+# sidebar with a text input widget for the API key
+api_key = st.sidebar.text_input("Enter your API key")
+
+st.write(api_key)
+
 # Read the value of the environment variable
 api_key = os.getenv('API_NAME')
 
@@ -28,8 +34,6 @@ api_key = os.getenv('API_NAME')
 st.write("Hello, world!")
 #st.write(openai_api_key)
 
-import streamlit as st
-import os
 
 if 'env' not in st.secrets:
     st.error('No secrets were found.')
