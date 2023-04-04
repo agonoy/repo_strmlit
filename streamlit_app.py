@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 
 # Just add it after st.sidebar:
-a = st.sidebar.radio('Select one:', [1, 2])
+a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
 
 # Read the value of the environment variable
