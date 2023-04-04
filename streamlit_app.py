@@ -35,3 +35,16 @@ else:
 
 #st.write(openai_api_key)
 st.write(api_key)
+
+
+# create a 2D array
+arr = np.array([[1, 2], [3, 4]])
+
+# create a DataFrame with the array
+df = pd.DataFrame(arr, columns=['A', 'B'])
+
+# print the DataFrame
+print(df)
+
+
+st.write(df)
