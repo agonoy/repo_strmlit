@@ -9,6 +9,10 @@ from llama_index import SimpleDirectoryReader
 import pandas as pd
 import numpy as np
 
+# Just add it after st.sidebar:
+a = st.sidebar.radio('Select one:', [1, 2])
+
+
 # Read the value of the environment variable
 api_key = os.getenv('API_NAME')
 
