@@ -22,11 +22,13 @@ st.write(api_key)
 # Read the value of the environment variable
 #api_key = os.getenv('API_NAME')
 
+#MY_API_KEY
 my_api_key = os.environ["MY_API_KEY"]
 
 # Now you can use the API key in your Python code
 print(f"My API key is {my_api_key}")
 
+st.write(my_api_key)
 
 #api_key2 = os.environ["MY_API_KEY"]
 
