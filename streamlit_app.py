@@ -20,8 +20,12 @@ api_key = st.sidebar.text_input("Enter your API key")
 st.write(api_key)
 
 # Read the value of the environment variable
-api_key = os.getenv('API_NAME')
+#api_key = os.getenv('API_NAME')
 
+my_api_key = os.environ["MY_API_KEY"]
+
+# Now you can use the API key in your Python code
+print(f"My API key is {my_api_key}")
 
 
 #api_key2 = os.environ["MY_API_KEY"]
