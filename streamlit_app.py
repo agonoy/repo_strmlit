@@ -13,6 +13,16 @@ import numpy as np
 a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
 
+
+if 'env' not in st.secrets:
+    st.error('No secrets were found.')
+else:
+    #secrets = st.secrets['env']
+    openai.api_key = st.secrets["MY_API_KEY"]
+    st.write("The OpenAI API key is:", openai.api_key)
+    
+
+
 #============== input API ===== side bar
 # sidebar with a text input widget for the API key
 api_key = st.sidebar.text_input("Enter your API key")
@@ -26,7 +36,7 @@ st.write(api_key)
 
 
 # Set the API key for the OpenAI API using Streamlit's secrets
-openai.api_key = st.secrets["MY_API_KEY"]
+
 
 # Display the API key in the Streamlit app
 st.write("The OpenAI API key is:", openai.api_key)
@@ -34,7 +44,7 @@ st.write("The OpenAI API key is:", openai.api_key)
 # Now you can use the API key in your Python code
 #print(f"My API key is {my_api_key}")
 
-st.write(my_api_key)
+
 
 # Generating responses from the API
 def generate_response(prompt):
@@ -94,14 +104,6 @@ st.write("Hello, world!")
 #st.write(openai_api_key)
 
 
-if 'env' not in st.secrets:
-    st.error('No secrets were found.')
-else:
-    #secrets = st.secrets['env']
-    api_key = st.secrets['NAME_API']
-
-#st.write(openai_api_key)
-st.write(api_key)
 
 
 # create a 2D array
