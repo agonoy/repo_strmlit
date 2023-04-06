@@ -71,20 +71,20 @@ def get_text():
 # If user_input is not empty, we will generate a response using the generate_response function and store it in a variable called output. We will also append the user's input and the generated response to the past and generated lists, respectively, to keep track of the chat history.
 # user_input = get_text()
 
-if user_input:
-    output = generate_response(user_input)
-    # store the output 
-    st.session_state.past.append(user_input)
-    st.session_state.generated.append(output)
+# if user_input:
+#     output = generate_response(user_input)
+#     # store the output 
+#     st.session_state.past.append(user_input)
+#     st.session_state.generated.append(output)
 
 #========  ====================
 # Finally, we will display the chat history by iterating through the generated and past lists and using the message function from the streamlit_chat library to display each message.
 
-if st.session_state['generated']:
+# if st.session_state['generated']:
     
-    for i in range(len(st.session_state['generated'])-1, -1, -1):
-        message(st.session_state["generated"][i], key=str(i))
-        message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+#     for i in range(len(st.session_state['generated'])-1, -1, -1):
+#         message(st.session_state["generated"][i], key=str(i))
+#         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
 
 
 #======== END chat  ====================
