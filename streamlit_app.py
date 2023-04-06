@@ -14,8 +14,8 @@ a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
 
 
-if 'env' not in st.secrets:
-    st.error('No secrets were found.')
+if 'MY_API_KEY' not in st.secrets:
+    st.error('There is no API, @#$!@#@!!!')
 else:
     #secrets = st.secrets['env']
     openai.api_key = st.secrets["MY_API_KEY"]
