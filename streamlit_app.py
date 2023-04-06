@@ -9,6 +9,11 @@ from streamlit_chat import message
 import pandas as pd
 import numpy as np
 
+
+ # Include custom CSS stylesheet
+st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
+
+
 # Just add it after st.sidebar:
 a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
@@ -51,7 +56,7 @@ def generate_response(prompt):
 
 #======== Creating the chatbot interface ====================
 
-st.title("chatBot : Streamlit + openAI")
+st.title("Welcome to Sam's Kitchen ChatBot")
 
 # Storing the chat
 if 'generated' not in st.session_state:
@@ -91,11 +96,16 @@ if st.session_state['generated']:
 
 #======== END chat  ====================
 
+
+
+
+
+
+
+
+
 st.write("Hello, world!")
 #st.write(openai_api_key)
-
-
-
 
 # create a 2D array
 arr = np.array([[1, 2], [3, 4]])
