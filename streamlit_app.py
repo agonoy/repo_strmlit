@@ -24,7 +24,7 @@ st.write(api_key)
 #MY_API_KEY  .. NOTE this will work in streamlit website by adding the API KEY
 #my_api_key = os.environ["MY_API_KEY"]
 
-openai.api_key = st.secrets["MY-API_KEY"]
+openai.api_key = st.secrets["MY_API_KEY"]
 # Now you can use the API key in your Python code
 print(f"My API key is {my_api_key}")
 
