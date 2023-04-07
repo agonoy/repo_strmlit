@@ -12,22 +12,6 @@ from streamlit_chat import message
 
 
 
-# Define the CSS styles for the chatbot image
-chatbot_styles = """
-<style>
-.st-cc.bubble-wrapper.bot img {
-    width: 100px;
-    height: 100px;
-    background-image: url('https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg');
-    background-size: cover;
-    border-radius: 50%;
-}
-</style>
-"""
-
-# Display the chatbot image using the custom CSS styles
-st.markdown(chatbot_styles, unsafe_allow_html=True)
-
 
 
 
