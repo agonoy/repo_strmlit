@@ -8,19 +8,27 @@ from streamlit_chat import message
 
 # import pandas as pd
 # import numpy as np
+#https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg")
 
 
-st.markdown("""
-   <style>
-      .st-cc.bubble-wrapper.bot img {
-         width: 50px;
-         height: 50px;
-         background-image: url("https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg");
-         background-size: contain;
-         border-radius: 50%;
-      }
-   </style>
-""", unsafe_allow_html=True)
+
+# Define the CSS styles for the chatbot image
+chatbot_styles = """
+<style>
+.st-cc.bubble-wrapper.bot img {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg');
+    background-size: cover;
+    border-radius: 50%;
+}
+</style>
+"""
+
+# Display the chatbot image using the custom CSS styles
+st.markdown(chatbot_styles, unsafe_allow_html=True)
+
+
 
 
 #===================== Navigation =======================================
