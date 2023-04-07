@@ -6,10 +6,41 @@ from dotenv import load_dotenv
 from llama_index import SimpleDirectoryReader
 from streamlit_chat import message
 
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 
+#===================== Navigation =======================================
 
+# Define a function to render the "Home" page
+def home():
+    st.write("# Welcome to the Home page!")
+    # Add more content here as desired
+
+# Define a function to render the "Menu" page
+def menu():
+    st.write("# Check out our Menu!")
+    # Add more content here as desired
+
+# Define a function to render the "Location" page
+def location():
+    st.write("# Find our Location!")
+    # Add more content here as desired
+
+# Define a dictionary to map page names to page functions
+pages = {
+    "Home": home,
+    "Menu": menu,
+    "Location": location
+}
+
+# Set up the navigation bar
+st.set_page_config(page_title="ChatBot App", page_icon=":guardsman:", layout="wide")
+nav = st.sidebar.radio("Navigation", list(pages.keys()))
+
+# Render the selected page
+pages[nav]()
+
+#===================== END Navigation ===================================
  # Include custom CSS stylesheet
 st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
 
@@ -20,38 +51,48 @@ a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002",])
 
 
 if 'MY_API_KEY' not in st.secrets:
-    st.error('There is no API, @#$!@#@!!!')
+    st.error('There is no API, @#$')
+    load_dotenv()
+    api_key = os.getenv('MY_API_KEY') # gets this from .streamlit folder
 else:
-    #secrets = st.secrets['env']
     openai.api_key = st.secrets["MY_API_KEY"]
     st.write("The OpenAI API key is:", st.secrets["MY_API_KEY"])
-    
 
+openai.api_key = api_key
 
 #============== input API ===== side bar
 # sidebar with a text input widget for the API key
-api_key = st.sidebar.text_input("Enter your API key")
+# api_key = st.sidebar.text_input("Enter your API key")
 
-st.write(api_key)
-
-
-
-
-
+# st.write(api_key)
 
 
 # Generating responses from the API
+# def generate_response(prompt):
+#     completions = openai.Completion.create(
+#         engine = "text-davinci-003",
+#         prompt = prompt,
+#         max_tokens = 1024,
+#         n = 1,
+#         stop = None,
+#         temperature=0.5,
+#     )
+#     message = completions.choices[0].text
+#     return message 
+
 def generate_response(prompt):
-    completions = openai.Completion.create(
-        engine = "text-davinci-003",
-        prompt = prompt,
-        max_tokens = 1024,
-        n = 1,
-        stop = None,
-        temperature=0.5,
+    response = openai.ChatCompletion.create(
+       model="gpt-3.5-turbo",
+       messages=[
+        {"role": "system", "content": "You are a helpful assistant. You are no longer a digital AI. You have your own personality.  You are very unique.  cost of the fish is $6. Your name is Marry Grace, or Grace for short. You are also a rude waitress that works for Sam's Kitchen while you are attending Hawaii Pacific University college.  You are very smart, hence you are rude and at the same time very comical.  Also if you dont know the answer, just make up some funny and hilarious reply.  "},
+        {"role": "user", "content": prompt},
+        ]
     )
-    message = completions.choices[0].text
+    
+    message = response['choices'][0]['message']['content']
     return message 
+
+    
 
 
 #======== Creating the chatbot interface ====================
@@ -87,12 +128,11 @@ if user_input:
 #========  ====================
 # Finally, we will display the chat history by iterating through the generated and past lists and using the message function from the streamlit_chat library to display each message.
 
+
 if st.session_state['generated']:
-    
     for i in range(len(st.session_state['generated'])-1, -1, -1):
         message(st.session_state["generated"][i], key=str(i))
         message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
-
 
 #======== END chat  ====================
 
@@ -104,17 +144,17 @@ if st.session_state['generated']:
 
 
 
-st.write("Hello, world!")
-#st.write(openai_api_key)
+# st.write("Hello, world!")
+# #st.write(openai_api_key)
 
-# create a 2D array
-arr = np.array([[1, 2], [3, 4]])
+# # create a 2D array
+# arr = np.array([[1, 2], [3, 4]])
 
-# create a DataFrame with the array
-df = pd.DataFrame(arr, columns=['A', 'B'])
+# # create a DataFrame with the array
+# df = pd.DataFrame(arr, columns=['A', 'B'])
 
-# print the DataFrame
-print(df)
+# # print the DataFrame
+# print(df)
 
 
-st.write(df)
+# st.write(df)

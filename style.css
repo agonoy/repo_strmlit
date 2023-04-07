@@ -1,0 +1,17 @@
+.st-cc.bubble-wrapper.bot img {
+    width: 50px;
+    height: 50px;
+    background-image: url("Github_strmLit/repo_strmlit/images/bbenger.jpg");
+    background-size: contain;
+    border-radius: 50%;
+}
+
+/*
+.st-cc.bubble-wrapper.user img {
+    width: 30px;
+    height: 30px;
+    background-image: url("path/to/your-user-image.png");
+    background-size: contain;
+    border-radius: 50%;
+}
+*/
