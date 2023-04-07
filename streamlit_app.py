@@ -4,14 +4,29 @@ import openai
 import os
 from dotenv import load_dotenv
 from llama_index import SimpleDirectoryReader
-from streamlit_chat import message
+from streamlit_chat import message, AvatarStyle
 
 # import pandas as pd
 # import numpy as np
 #https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg")
+#https://api.dicebear.com/6.x/adventurer/svg?flip=true
 
 
+# Set the URL for the avatar image
+avatar_url = "https://api.dicebear.com/6.x/adventurer/svg?flip=true" # Replace with your desired avatar URL
 
+benglar_url = "https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg"
+
+
+# message(message, 
+#             is_user=False, 
+#             avatar_style="adventurer", # change this for different user icon
+#             seed=123, # or the seed for different user icons
+# )
+
+
+ #message("hello", is_user=False, avatar_style = avatar_url)
+ 
 
 
 
@@ -46,7 +61,20 @@ nav = st.sidebar.radio("Navigation", list(pages.keys()))
 # Render the selected page
 pages[nav]()
 
+# Create a message from the user
+# Create a message from the user with a custom avatar
+user_message = "Hi, how are you?"
+user_avatar_url = "https://api.dicebear.com/6.x/adventurer/svg?flip=true"
+
+# Create a message from the bot with the default avatar style
+bot_message = "I'm doing well, thank you for asking!"
+
+# Display the messages using the `message` function
+message(user_message, is_user=True, avatar_style=user_avatar_url, key="user_message")
+message(bot_message, key="bot_message")
 #===================== END Navigation ===================================
+
+
  # Include custom CSS stylesheet
 st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
 
@@ -87,6 +115,9 @@ else:
 #     message = completions.choices[0].text
 #     return message 
 
+
+
+
 def generate_response(prompt):
     response = openai.ChatCompletion.create(
        model="gpt-3.5-turbo",
@@ -98,8 +129,8 @@ def generate_response(prompt):
     
     message = response['choices'][0]['message']['content']
     #return message 
-    return message(message, is_user=False, avatar_style="adventurer", seed=123)
-
+   # return message(message, is_user=False, avatar_style = avatar_url , seed=123)
+    return message
     
 
 

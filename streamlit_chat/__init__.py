@@ -61,7 +61,10 @@ def message(message: str,
             key: Optional[str] = None):
     """
     Creates a new instance of streamlit-chat component
-
+    
+ # message(st.session_state['past'][i], is_user=True, key=str(i) + '_user')
+    
+    
     Parameters
     ----------
     message: str
