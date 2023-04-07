@@ -113,7 +113,8 @@ def generate_response(prompt):
     )
     
     message = response['choices'][0]['message']['content']
-    return message 
+    #return message 
+    return message(message, is_user=False, avatar_style="adventurer", seed=123)
 
     
 
