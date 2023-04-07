@@ -9,6 +9,19 @@ from streamlit_chat import message
 # import pandas as pd
 # import numpy as np
 
+
+st.markdown("""
+   <style>
+      .st-cc.bubble-wrapper.bot img {
+         width: 50px;
+         height: 50px;
+         background-image: url("https://github.com/agonoy/repo_strmlit/blob/main/images/bbenger.jpg");
+         background-size: contain;
+         border-radius: 50%;
+      }
+   </style>
+""", unsafe_allow_html=True)
+
 #===================== Navigation =======================================
 
 # Define a function to render the "Home" page
