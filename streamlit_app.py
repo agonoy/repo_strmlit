@@ -54,11 +54,12 @@ if 'MY_API_KEY' not in st.secrets:
     st.error('There is no API, @#$')
     load_dotenv()
     api_key = os.getenv('MY_API_KEY') # gets this from .streamlit folder
+    openai.api_key = api_key
 else:
     openai.api_key = st.secrets["MY_API_KEY"]
     #st.write("The OpenAI API key is:", st.secrets["MY_API_KEY"])
 
-openai.api_key = api_key
+
 
 #============== input API ===== side bar
 # sidebar with a text input widget for the API key
