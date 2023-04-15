@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from llama_index import SimpleDirectoryReader
 from typing import Optional, Union
 from streamlit_chat import message, AvatarStyle
+import webbrowser
 
 
 # import pandas as pd
@@ -37,9 +38,17 @@ mainPage_url = "https://wp.hawaiionline.tech/"
 
 #===================== Navigation =======================================
 
+
 # Define a function to render the "Home" page
 def home():
     st.write("# Welcome to Sam's Kitchen ChatBot!")
+    # Create a sidebar with a link to the home page
+  
+    
+
+
+
+    
     # Add more content here as desired
 
 # Define a function to render the "Menu" page
@@ -51,12 +60,16 @@ def menu():
 def location():
     st.write("# Find our Location!")
     # Add more content here as desired
+    
+def external_link():
+    webbrowser.open_new_tab("https://wp.hawaiionline.tech/")
 
 # Define a dictionary to map page names to page functions
 pages = {
     "Home": home,
     "Menu": menu,
-    "Location": location
+    "Location": location,
+    "External Link": external_link
 }
 
 # Set up the navigation bar / image
