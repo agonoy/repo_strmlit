@@ -9,6 +9,7 @@ from streamlit_chat import message, AvatarStyle
 import webbrowser
 
 
+
 # import pandas as pd
 # import numpy as np
 #https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg")
@@ -22,7 +23,7 @@ avatar_url = "https://api.dicebear.com/6.x/adventurer/svg?flip=true" # Replace w
 
 benglar_url = "https://raw.githubusercontent.com/agonoy/repo_strmlit/main/images/bbenger.jpg"
 
-mainPage_url = "https://wp.hawaiionline.tech/"
+EXTERNAL_LINK_URL = "https://wp.hawaiionline.tech/"
 
 # message(message, 
 #             is_user=False, 
@@ -41,8 +42,13 @@ mainPage_url = "https://wp.hawaiionline.tech/"
 
 # Define a function to render the "Home" page
 def home():
-    st.write("# Welcome to Sam's Kitchen ChatBot!")
-    # Create a sidebar with a link to the home page
+    st.write("# 🍤 Welcome to Sam's Kitchen ChatBot! :smile: 🍗")
+    # Define the sidebar links using Markdown and HTML
+    # st.sidebar.markdown('<h2 style="margin-bottom: 0">Navigation</h2>', unsafe_allow_html=True)
+    # st.sidebar.markdown('<hr style="margin-top: 0">', unsafe_allow_html=True)
+    # st.sidebar.markdown('<a href="https://wp.hawaiionline.tech/" style="display: block; padding: 0.25rem 0;">Home</a>', unsafe_allow_html=True)
+    # st.sidebar.markdown('<a href="https://wp.hawaiionline.tech/" style="display: block; padding: 0.25rem 0;">Menu</a>', unsafe_allow_html=True)
+   
   
     
 
@@ -61,12 +67,17 @@ def location():
     st.write("# Find our Location!")
     # Add more content here as desired
     
+# Define a function to open the external link
 def external_link():
-    webbrowser.open_new_tab("https://wp.hawaiionline.tech/")
+    webbrowser.open(EXTERNAL_LINK_URL)
+
+## ===== end def External link
+
+
 
 # Define a dictionary to map page names to page functions
 pages = {
-    "Home": home,
+    "Star": home,
     "Menu": menu,
     "Location": location,
     "External Link": external_link
@@ -75,6 +86,8 @@ pages = {
 # Set up the navigation bar / image
 st.set_page_config(page_title="ChatBot App", page_icon=":guardsman:", layout="wide")
 nav = st.sidebar.radio("Navigation", list(pages.keys()))
+
+st.sidebar.markdown('<a href="https://wp.hawaiionline.tech/" style="display: block; padding: 0.25rem 0;">Main</a>', unsafe_allow_html=True)
 
 # Render the selected page
 pages[nav]()
