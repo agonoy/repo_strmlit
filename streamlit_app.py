@@ -42,7 +42,7 @@ EXTERNAL_LINK_URL = "https://wp.hawaiionline.tech/"
 
 # Define a function to render the "Home" page
 def home():
-    st.write("# 🍤 Welcome to Sam's Kitchen ChatBot! :smile: 🍗")
+    st.write("")
     # Define the sidebar links using Markdown and HTML
     # st.sidebar.markdown('<h2 style="margin-bottom: 0">Navigation</h2>', unsafe_allow_html=True)
     # st.sidebar.markdown('<hr style="margin-top: 0">', unsafe_allow_html=True)
@@ -85,12 +85,17 @@ pages = {
 
 # Set up the navigation bar / image
 st.set_page_config(page_title="ChatBot App", page_icon=":guardsman:", layout="wide")
-nav = st.sidebar.radio("Navigation", list(pages.keys()))
+#nav = st.sidebar.radio("Navigation", list(pages.keys()))
 
-st.sidebar.markdown('<a href="https://wp.hawaiionline.tech/" style="display: block; padding: 0.25rem 0;">Main</a>', unsafe_allow_html=True)
+
 
 # Render the selected page
-pages[nav]()
+#pages[nav]()
+
+st.sidebar.markdown('<a href="https://wp.hawaiionline.tech/" style="display: block; padding: 0.25rem 0;">Main</a>', unsafe_allow_html=True)
+st.write("# 🍤 Welcome to Sam's Kitchen ChatBot! :smile: 🍗")
+
+
 
 # Create a message from the user
 # Create a message from the user with a custom avatar
