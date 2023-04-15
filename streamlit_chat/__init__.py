@@ -54,6 +54,8 @@ AvatarStyle = Literal[
     "thumbs",
 ]
 
+#88
+
 def message(message: str, 
             is_user: Optional[bool] = False, 
             avatar_style: Optional[AvatarStyle] = None,
