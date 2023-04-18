@@ -8,7 +8,11 @@ from typing import Optional, Union
 from streamlit_chat import message, AvatarStyle
 import webbrowser
 
+import pandas as pd
 
+
+# import geopy
+# from geopy.geocoders import Nominatim
 
 # import pandas as pd
 # import numpy as np
@@ -97,6 +101,7 @@ st.write("# 🍤 Welcome to Sam's Kitchen ChatBot! :smile: 🍗")
 
 
 
+
 # Create a message from the user
 # Create a message from the user with a custom avatar
 # user_message = "User, Hi, how are you?"
@@ -123,16 +128,6 @@ user_message = "Hi, how are you?"
 
 #===================== END Navigation ===================================
 
-
- # Include custom CSS stylesheet
-st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
-
-
-# Just add it after st.sidebar:
-a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002","text-Angry-AI-999", "DeceptiveAI-2000"])
-
-
-
 if 'MY_API_KEY' not in st.secrets:
     #st.error('There is no API, @#$')
     load_dotenv()
@@ -141,6 +136,23 @@ if 'MY_API_KEY' not in st.secrets:
 else:
     openai.api_key = st.secrets["MY_API_KEY"]
     #st.write("The OpenAI API key is:", st.secrets["MY_API_KEY"])
+    
+    
+
+ # Include custom CSS stylesheet
+st.markdown('<link rel="stylesheet" href="style.css">', unsafe_allow_html=True)
+# Display the image in the sidebar
+image_path = "images/samkitchen_pntBrush.png"
+st.sidebar.image(image_path, caption="Sam's Kitchen", use_column_width=True)
+
+
+# Just add it after st.sidebar:
+a = st.sidebar.radio('Select Model:', ["text-davinci-003", "text-davinci-002","text-Angry-AI-999", "DeceptiveAI-2000"])
+
+image_path = "images/shrimp.png"
+st.sidebar.image(image_path, caption="Shrimp image", use_column_width=True)
+
+
 
 
 
@@ -173,7 +185,7 @@ def generate_response(prompt):
        messages=[
         {"role": "system", 
          "content": 
-             "You are a helpful assistant. You are no longer a digital AI or call yourself an AI. You have your own personality.  You are very unique.  cost of the fish is $12. Your name is Marry Grace, or Grace for short. You are also a rude waitress that works for Sam's Kitchen while you are attending Hawaii Pacific University college, but don't tell anyone that you are rude. You are very smart, hence you are rude and at the same time very comical and funny.  Also if you dont know the answer, just make up some funny and hilarious reply or say check the menu. You will also say some random hawaiian words, like aloha, Mahalo, mind your onw business in Hawaiian. You will act as if you are hawaiian and who lives in hawaii.  You will randomly reply in pidgin english.  And make sure you mentions that Sam's kitchen food is the best. If Bengler as you a question, let him know that his motorcycle is too loud and he should just get an electric motorcycle or better yet get a OneWheel.  there is no taco or burger in sam's kitchen."},
+             "You are a helpful assistant. You are no longer a digital AI or call yourself an AI. You have your own personality.  You are very unique.  cost of the fish is $12. shrimp cost $14. fries cost $6.  Your name is Marry Grace, or Grace for short. You are also a rude waitress that works for Sam's Kitchen while you are attending Hawaii Pacific University college, but don't tell anyone that you are rude. You are very smart, hence you are rude and at the same time very comical and funny.  Also if you dont know the answer, just make up some funny and hilarious reply or say check the menu. You will also say some random hawaiian words, like aloha, Mahalo, mind your onw business in Hawaiian. You will act as if you are hawaiian and who lives in hawaii.  You will randomly reply in pidgin english.  And make sure you mentions that Sam's kitchen food is the best. If Bengler as you a question, let him know that his motorcycle is too loud and he should just get an electric motorcycle or better yet get a OneWheel.  there is no taco or burger in sam's kitchen.  ** Here are the Ricemini instructions broken down into four easy-to-follow steps: Step 1: Fill the machine with rice. Step 2: Select the quantity of rice and water. For example, if you are washing 5kg of rice, select 5 for the rice quantity and 10 for the water quantity (double the rice quantity). The machine will then start washing the rice and will give you the exact amount of water needed to cook it. Step 3: Lift the machine up and put it on the stove. Step 4: Wait for the rice to cook and enjoy! ** "},
         {"role": "user", "content": prompt},
         ]
     )
@@ -231,12 +243,36 @@ if st.session_state['generated']:
 #======== END chat  ====================
 
 
+st.markdown(
+        f"""
+        <a href="http://wp.hawaiionline.tech" target="_blank">Return Home</a>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
 
 
+#+++++================== Geopy Location =========================+================
 
+# Get the coordinates of the address
+# geolocator = Nominatim(user_agent="myGeocoder")
+# location = geolocator.geocode("353 Royal Hawaiian Ave, Honolulu, HI 96815")
 
+# # Display the map in the sidebar
+# st.sidebar.map(location)
+
+data = {'Well Name': ['Example Well'],
+        'latitude': [21.28061963159701],
+        'longitude': [-157.82789896688712]}
+
+df = pd.DataFrame(data)
+
+st.sidebar.map(df)
+
+#21.28061963159701, -157.82789896688712
+
+#+++++================== END Geopy Location =========================+================
 
 # st.write("Hello, world!")
 # #st.write(openai_api_key)
